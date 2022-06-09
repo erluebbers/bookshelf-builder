@@ -1,7 +1,10 @@
+import '../../App.css';
 import React, { useState } from "react";
+import { useDispatch } from "react-redux"
 
 
 function Signup() {
+
   const initialFormState = {
     username: "",
     name: "",
@@ -12,12 +15,14 @@ function Signup() {
   const [errors, setErrors] = useState([]);
   const [formData, setFormData] = useState(initialFormState)
   
+  const dispatch = useDispatch()
 
   function handleChange(event) {
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
     });
+    console.log(formData)
   }
 
   
@@ -28,69 +33,85 @@ function Signup() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ formData }),
+      body: JSON.stringify({ 
+        username: formData.username,
+        name: formData.name,
+        location: formData.location,
+        password: formData.password,
+        passwordConfirmation: formData.passwordConfirmation,
+      }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then(console.log("SOMETHING"));
+        r.json().then(dispatch(formData));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
-    }).then(setFormData(initialFormState))
+    })
+    setFormData(initialFormState)
   }
 
 
   return (
-    <div>
+    <div className='form-container'>
+
+      <h3>Sign Up</h3>
       <form onSubmit={handleSubmit}>
 
       <label>Name</label>
         <input
           type="text"
+          placeholder='Enter name...'
           name="name"
           id="name"
           value={formData.name}
-          onChange={(event) => handleChange(event)}
-        />
+          onChange={e => handleChange(e)}
+        /> <br />
         
         <label>Username</label>
         <input
           type="text"
+          placeholder='Enter username...'
           name="username"
           id="username"
           value={formData.username}
-          onChange={(event) => handleChange(event)}
-        />
+          onChange={e => handleChange(e)}
+        /> <br />
 
         <label>Password</label>
         <input
           type="password"
+          placeholder='Enter password...'
           name="password"
           id="password"
           value={formData.password}
-          onChange={(event) => handleChange(event)}
-        />
+          onChange={e => handleChange(e)}
+        /> <br />
 
-        <label>Password Confirmation</label>
+        <label>Confirm Password</label>
         <input
           type="password"
+          placeholder='Enter password again...'
           name="passwordConfirmation"
           id="password_confirmation"
           value={formData.passwordConfirmation}
-          onChange={(event) => handleChange(event)}
-        />
+          onChange={(e) => handleChange(e)}
+        /> <br />
 
         <label>Location</label>
         <input
           type="text"
+          placeholder='Enter location...'
           id="location"
           name="location"
           value={formData.location}
-          onChange={(event) => handleChange(event)}
-        />
+          onChange={e => handleChange(e)}
+        /> <br />
 
-        <button type="submit">Sign Up</button>
+        <button className='button' type="submit">Sign Up</button> <br />
 
-        {errors}
+        <div>
+          {errors}
+        </div>
     </form>
     </div>
   );

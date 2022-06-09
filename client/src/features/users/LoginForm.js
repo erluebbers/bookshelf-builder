@@ -1,5 +1,6 @@
-// import '../App.css';
+import '../../App.css';
 import React, { useState } from "react";
+import { useDispatch } from "react-redux"
 
 
 function LoginForm() {
@@ -7,34 +8,30 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  function handleSubmit() {
-    console.log("TEXT")
-  }
+  const dispatch = useDispatch()
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   fetch("/login", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ username, password }),
-  //   }).then((r) => {
-  //     if (r.ok) {
-  //       r.json().then((user) => {
-  //         setUser(user)
-  //       });
-  //     } else {
-  //       r.json().then((err) => setErrors(err.errors));
-  //     }
-  //   })
-  // }
+  function handleSubmit(e) {
+    e.preventDefault()
+    fetch("/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password })
+    }).then(r => {
+      if (r.ok) {
+        r.json().then(user => dispatch({ type: "users/userAdded", payload: user}))
+      } else {
+        r.json().then(err => setErrors(err.errors))
+      }
+    })
+    setUsername("")
+    setPassword("")
+  }
 
 
   return (
     <div>
       <h3>Log in</h3>
-      <form onSubmit={handleSubmit} className='login-form'>
+      <form onSubmit={handleSubmit} className='form-container'>
           <label htmlFor="username">Username</label>
           <input
             type="text"
@@ -43,6 +40,7 @@ function LoginForm() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
+            <br />
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -51,6 +49,7 @@ function LoginForm() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+            <br />
           <button className='button' type="submit">Login</button>
       </form>
       {errors}

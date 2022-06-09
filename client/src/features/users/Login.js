@@ -1,4 +1,4 @@
-// import '../App.css';
+import '../../App.css';
 import React, { useState } from "react";
 import LoginForm from "./LoginForm"
 import SignupForm from "./SignupForm"
@@ -14,10 +14,16 @@ function Login() {
 
   return (
     <div>
-      <h1>Bookshelf Builder</h1>
+      <div className='header'>
+        <h1>Bookshelf Builder</h1>
+      </div>
+      <div className='login'>
         {existingUser ? <LoginForm /> : <SignupForm />}
-      <label htmlFor="signup"> {existingUser ? "Don't have an account? Sign up Here" : null} </label>
-      <button onClick={setUserValue}> {existingUser ? "Create an account" : "Back to Login"}</button>
+      </div>
+      <div className='footer'>
+        <label htmlFor="signup"> {existingUser ? "Don't have an account? Sign up here:" : null} </label>
+        <button className="button" onClick={setUserValue}> {existingUser ? "Create an account" : "Back to Login"}</button>
+      </div>
     </div>
   );
 }
