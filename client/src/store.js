@@ -3,13 +3,13 @@ import { configureStore } from "@reduxjs/toolkit";
 // import ThunkMiddleware from "redux-thunk";
 // import { applyMiddleware } from "redux";
 // import { composeWithDevTools } from "@reduxjs/toolkit/dist/devtoolsExtension";
-import usersReducer from "./features/users/usersSlice";
+import userReducer from "./features/users/userSlice";
 // import booksReducer from "./components/features/books/booksSlice";
 // import listsReducer from "./components/features/lists/listsSlice";
 
 const store = configureStore({
   reducer: {
-    users: usersReducer,
+    users: userReducer,
     // books: booksReducer,
     // lists: listsReducer,
   },

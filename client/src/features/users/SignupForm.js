@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux"
 
 
+
 function Signup() {
 
   const initialFormState = {
@@ -22,7 +23,6 @@ function Signup() {
       ...formData,
       [event.target.name]: event.target.value,
     });
-    console.log(formData)
   }
 
   
@@ -42,7 +42,7 @@ function Signup() {
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then(dispatch(formData));
+        r.json().then(console.log((formData)));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

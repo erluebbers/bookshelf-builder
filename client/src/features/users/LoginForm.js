@@ -1,6 +1,7 @@
 import '../../App.css';
 import React, { useState } from "react";
-import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux";
+import { setUser } from "./userSlice";
 
 
 function LoginForm() {
@@ -18,7 +19,7 @@ function LoginForm() {
       body: JSON.stringify({ username, password })
     }).then(r => {
       if (r.ok) {
-        r.json().then(user => dispatch({ type: "users/userAdded", payload: user}))
+        r.json().then(user => dispatch(setUser(user)))
       } else {
         r.json().then(err => setErrors(err.errors))
       }

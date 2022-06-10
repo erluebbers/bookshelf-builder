@@ -55,3 +55,37 @@
   font-size: 15px;
   font-family: inherit;
 }
+
+.navbar {
+  background-color: darkseagreen;
+  display: flex;
+  align-items: center;
+}
+
+.navigation {
+  height: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: .5rem 0rem;
+  color: black;
+  margin: 10px;
+}
+
+.navigation a {
+  color: black;
+  margin: 20px;
+  font-size: 20px;
+}
+
+.logout-button {
+  background-color: indigo;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 12px;
+  font-family: inherit;
+  margin-right: 20px;
+}
