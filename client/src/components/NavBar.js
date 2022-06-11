@@ -1,13 +1,20 @@
 import '../App.css';
-import { useSelector } from "react-redux";
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
+import { useDispatch } from "react-redux";
+import { deleteUser } from "../features/users/userSlice";
 
 
 function NavBar() {
+  const dispatch = useDispatch()
 
-  function handleLogoutClick() {
-    console.log("CLICK")
+  const handleLogoutClick = () => {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        dispatch(deleteUser());
+      }
+    });
+    <Navigate replace to="/"/>
   }
   
   

@@ -1,15 +1,21 @@
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
 // Action Creators
 
 
 // Reducers
-const initialState = [];
+const booksSlice = createSlice({
+  name: "books",
+  initialState: {
+    items: [], 
+  },
+  reducers: {
+    loadBooks(state, action) {
+      state.items = action.payload
+    },
+  },
+});
 
-export default function booksReducer(state = initialState, action) {
-  switch (action.type) {
-    case "books/add":
-      return [...state, action.payload];
+export const { loadBooks } = booksSlice.actions
 
-    default:
-      return state;
-  }
-}
+export default booksSlice.reducer;

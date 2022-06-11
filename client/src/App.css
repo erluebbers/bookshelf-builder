@@ -89,3 +89,35 @@
   font-family: inherit;
   margin-right: 20px;
 }
+
+.books-cont {
+  margin: 10px;
+  border-radius: 10px;
+  border: solid indigo;
+}
+
+.books-cont h2 {
+  text-align: center;
+}
+
+.booklist {
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr
+}
+
+.bookcard {
+  margin: 2px;
+  border: solid darkslategray;
+  background-color: lemonchiffon;
+}
+
+.bookcard h3 {
+  text-align: center;
+  margin: 2px;
+}
+
+.bookcard p {
+  text-align: center;
+  margin: 2px;
+}

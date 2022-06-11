@@ -2,6 +2,7 @@ import '../../App.css';
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "./userSlice";
+import { loadBooks } from "../books/booksSlice"
 
 
 function LoginForm() {
@@ -19,7 +20,12 @@ function LoginForm() {
       body: JSON.stringify({ username, password })
     }).then(r => {
       if (r.ok) {
-        r.json().then(user => dispatch(setUser(user)))
+        r.json().then(user => {
+          dispatch(setUser(user))
+          // console.log("user:", user)
+          // console.log("books:", user.books)
+          dispatch(loadBooks(user.books))
+        })
       } else {
         r.json().then(err => setErrors(err.errors))
       }
