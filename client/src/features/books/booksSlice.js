@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 // Action Creators
 
@@ -13,9 +13,19 @@ const booksSlice = createSlice({
     loadBooks(state, action) {
       state.items = action.payload
     },
+    deleteBooks(state, action) {
+      state.items = state.items.filter(book => book.id !== action.payload)
+    },
+    addBooks(state, action) {
+      state.items.push(action.payload)
+    },
+    updateBookDescription(state, action) {
+      const book = state.items.find(book => book.id === action.payload.id)
+      book.description = action.payload.description
+    }
   },
 });
 
-export const { loadBooks } = booksSlice.actions
+export const { loadBooks, deleteBooks, addBooks, updateBookDescription } = booksSlice.actions
 
 export default booksSlice.reducer;

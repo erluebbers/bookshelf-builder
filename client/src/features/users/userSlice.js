@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { loadBooks } from "../books/booksSlice";
 
 // Action Creators
 export const fetchUser = createAsyncThunk("users/fetchUser", () => {
@@ -8,7 +7,6 @@ export const fetchUser = createAsyncThunk("users/fetchUser", () => {
       if (r.ok) {
         r.json().then((user) => {
           setUser(user)
-          loadBooks(user.books)
         });
       }
     })
@@ -19,8 +17,7 @@ export const fetchUser = createAsyncThunk("users/fetchUser", () => {
 const userSlice = createSlice({
   name: "user",
   initialState: {
-    selectedUser: {}, 
-    status: "idle", //loading state
+    selectedUser: {}
   },
   reducers: {
     setUser(state, action) {

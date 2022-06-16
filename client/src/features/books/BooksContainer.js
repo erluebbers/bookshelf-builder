@@ -8,6 +8,8 @@ import { useSelector } from "react-redux"
 function BooksContainer() {
   const books = useSelector(state => state.books.items)
 
+  // console.log(books)
+
   const bookList = books.map(book => {
     return <BookCard book={book} key={book.id}/>
   })

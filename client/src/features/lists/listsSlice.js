@@ -1,15 +1,27 @@
-// Action Creators
+import { createSlice } from "@reduxjs/toolkit";
+
 
 
 // Reducers
-const initialState = [];
+const listsSlice = createSlice({
+  name: "lists",
+  initialState: {
+    collections: [], 
+  },
+  reducers: {
+    loadLists(state, action) {
+      state.collections = action.payload
+    },
+    addLists(state, action) {
+      state.collections.push(action.payload)
+    },
+    updateLists(state, action) {
+      const editedList = state.collections.find(list => list.id === action.payload.list.id)
+      editedList.books.push(action.payload.book)
+    },
+  },
+});
 
-export default function listsReducer(state = initialState, action) {
-  switch (action.type) {
-    case "lists/add":
-      return [...state, action.payload];
+export const { loadLists, addLists, updateLists } = listsSlice.actions
 
-    default:
-      return state;
-  }
-}
+export default listsSlice.reducer;

@@ -107,7 +107,8 @@
 }
 
 .bookcard {
-  margin: 2px;
+  margin: 5px;
+  padding: 5px;
   border: solid darkslategray;
   background-color: lemonchiffon;
 }
@@ -119,5 +120,76 @@
 
 .bookcard p {
   text-align: center;
+  margin: 2px;
+}
+
+.new-book {
+  font-size: small;
+  text-align: center;
+  border-bottom: solid indigo;
+  margin: 10px
+}
+
+.submit-new {
+  font-family: inherit;
+  margin: 5px;
+}
+
+.submit-new input {
+  margin: 5px;
+  display: inline-flex;
+  padding: 2px;
+  font-family: inherit;
+}
+
+.submit-new label {
+  margin: 5px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.submit-new select {
+  margin: 5px;
+  display: inline-flex;
+  padding: 2px;
+  font-family: inherit;
+}
+
+/* list card */
+.list-cont {
+  margin: 10px;
+  border-radius: 10px;
+  border: solid indigo;
+}
+
+.list-cont h2 {
+  text-align: center;
+}
+
+.lists-holder {
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr
+}
+
+.listcard {
+  margin: 5px;
+  padding: 5px;
+  border: solid darkslategray;
+  background-color: lavender;
+  display: inline-block;
+}
+
+.listcard h3 {
+  text-align: center;
+  margin: 2px;
+}
+
+.listcard span {
+  font-weight: bold;
+  display: inline;
+}
+
+.listcard p {
   margin: 2px;
 }

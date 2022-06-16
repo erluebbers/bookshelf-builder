@@ -22,8 +22,6 @@ function LoginForm() {
       if (r.ok) {
         r.json().then(user => {
           dispatch(setUser(user))
-          // console.log("user:", user)
-          // console.log("books:", user.books)
           dispatch(loadBooks(user.books))
         })
       } else {

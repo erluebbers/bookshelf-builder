@@ -1,8 +1,6 @@
 import '../../App.css';
 import React, { useState } from "react";
-import { useDispatch } from "react-redux"
-
-
+// import { useDispatch } from "react-redux"
 
 function Signup() {
 
@@ -16,7 +14,7 @@ function Signup() {
   const [errors, setErrors] = useState([]);
   const [formData, setFormData] = useState(initialFormState)
   
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
   function handleChange(event) {
     setFormData({

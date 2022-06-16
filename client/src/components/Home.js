@@ -10,7 +10,7 @@ function Home() {
   return (
     <div>
       <div>
-        THIS IS WHERE THE WELCOME/BIO WILL GO
+        <h4> Welcome to Bookshelf Builder where you can keep track of your own favorite books and collaboratively build booklists of your favorite books with other users. </h4>
       </div>
       <div>
         <BooksContainer />
