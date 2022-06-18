@@ -29,7 +29,7 @@ function App() {
   }, [dispatch]);
 
   useEffect(() => {
-    fetch(`/users/${user.id}/lists`)
+    fetch(`/lists`)
       .then(r => r.json())
       .then(lists => dispatch(loadLists(lists)))
   }, [])

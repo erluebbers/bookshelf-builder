@@ -3,7 +3,22 @@ class ListsController < ApplicationController
 
   def index
     lists = List.all
-    render json: lists, include: :books
+    render json: lists
+  end
+
+  def show
+    list = List.find(params[:id])
+    render json: list
+  end 
+
+  def update
+    list = List.find(params[:id])
+    if list
+      list.update(list_params)
+      render json: list, status: :accepted
+    else
+      render json: { error: "List not Found" }, status: :not_found
+    end
   end
 
   def create 

@@ -6,7 +6,7 @@ function ListCard( { list } ) {
   const { creator, description, genre, id, title, books } = list
 
   const titleList = books.map(book => {
-    return <li>{book.title} by {book.author}</li>
+    return <li key={book.id}>{book.title} by {book.author}</li>
   })
 
   return (

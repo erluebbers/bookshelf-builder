@@ -6,7 +6,6 @@ import ListCard from './ListCard'
 function ListsContainer() {
   const lists = useSelector(state => state.lists.collections)
 
-  console.log(lists)
 
   const displayLists = lists.map(list => {
     return <ListCard list={list} key={list.id}/>

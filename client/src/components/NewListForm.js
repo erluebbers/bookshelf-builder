@@ -27,7 +27,7 @@ function NewListForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch(`/users/${user.id}/lists`, {
+    fetch(`/lists`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  
+  resources :booklists
+  resources :lists
   resources :users do 
     resources :books
-    resources :booklists
-    resources :lists
   end
 
 
