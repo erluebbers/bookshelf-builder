@@ -33,12 +33,14 @@ function BookCard( {book} ) {
   }
 
 
-  const handleDelete = (id) => {
+  const handleDelete = () => {
     fetch(`/users/${user.id}/books/${id}`,{
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: { "Content-Type": "application/json" },
     })
     .then(r => r.json())
     .then((id) => dispatch(deleteBooks(id)))
+    .catch(e => console.log(e))
   }
   
   return (
@@ -47,7 +49,7 @@ function BookCard( {book} ) {
       <p>by {author}</p> <br />
       <p>Genre: {genre}</p>
       <p>Description: {description}</p> <br />
-      <button onClick={() => handleDelete(id)}>Delete from My Books</button>
+      <button onClick={handleDelete}>Delete from My Books</button>
       <div>
         <select onChange={(e) => getList(e)}>
           <option>Add this book to a list</option>
