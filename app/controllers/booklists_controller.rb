@@ -6,7 +6,7 @@ class BooklistsController < ApplicationController
   end
 
   def create 
-    booklist = Booklist.create( booklist_params.slice(:list_id, :book_id))
+    booklist = Booklist.create( booklist_params.slice(:list_id, :book_id) )
     if booklist.valid?
       render json: booklist, status: :created
     else
