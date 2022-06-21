@@ -18,13 +18,17 @@ function BookCard( {book} ) {
   })
 
   const handleAdd = () => {
-    fetch(`/booklists`, {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({list_id: targetList.id, book_id: id}),
-    })
-    .then(r => r.json())
-    .then(booklist => dispatch(updateLists(booklist)))
+    if (targetList.books.find(title => title)) {
+      alert("This book is already on this list")
+    } else {
+      fetch(`/booklists`, {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({list_id: targetList.id, book_id: id}),
+      })
+      .then(r => r.json())
+      .then(booklist => dispatch(updateLists(booklist)))
+    }
   }
 
   const getList = (e) => {
@@ -38,9 +42,7 @@ function BookCard( {book} ) {
       method: 'DELETE',
       headers: { "Content-Type": "application/json" },
     })
-    .then(r => r.json())
-    .then((id) => dispatch(deleteBooks(id)))
-    .catch(e => console.log(e))
+      .then(() => dispatch(deleteBooks(id)))
   }
   
   return (

@@ -1,6 +1,7 @@
 import '../../App.css';
 import React, { useState } from "react";
-// import { useDispatch } from "react-redux"
+import { Navigate } from "react-router-dom";
+
 
 function Signup() {
 
@@ -14,8 +15,6 @@ function Signup() {
   const [errors, setErrors] = useState([]);
   const [formData, setFormData] = useState(initialFormState)
   
-  // const dispatch = useDispatch()
-
   function handleChange(event) {
     setFormData({
       ...formData,
@@ -45,7 +44,8 @@ function Signup() {
         r.json().then((err) => setErrors(err.errors));
       }
     })
-    setFormData(initialFormState)
+    setFormData(initialFormState);
+    <Navigate replace to="/login"/>
   }
 
 

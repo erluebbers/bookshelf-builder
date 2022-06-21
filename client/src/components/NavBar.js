@@ -14,7 +14,7 @@ function NavBar() {
         dispatch(deleteUser());
       }
     });
-    <Navigate replace to="/"/>
+    <Navigate replace to="/login"/>
   }
   
   

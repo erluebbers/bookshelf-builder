@@ -13,10 +13,9 @@ import { loadLists } from './features/lists/listsSlice';
 
 function App() {
   const user = useSelector(state => state.users.selectedUser)
-  const lists = useSelector(state => state.lists.collections)
+  // const lists = useSelector(state => state.lists.collections)
   const dispatch = useDispatch()
 
-  //Auto-Login and fetch if there is a user session active
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
@@ -32,7 +31,7 @@ function App() {
     fetch(`/lists`)
       .then(r => r.json())
       .then(lists => dispatch(loadLists(lists)))
-  }, [])
+  }, [dispatch])
 
   
   if (Object.keys(user).length === 0) return <Login />;

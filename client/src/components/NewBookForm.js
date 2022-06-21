@@ -16,7 +16,6 @@ function NewBookForm() {
   const [formData, setFormData] = useState(initialFormState)
   const [errors, setErrors] = useState([]);
   const user = useSelector(state => state.users.selectedUser)
-  // const books = useSelector(state => state.books.items)
 
   function handleChange(event) {
     setFormData({

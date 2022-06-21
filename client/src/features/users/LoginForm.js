@@ -1,5 +1,6 @@
 import '../../App.css';
 import React, { useState } from "react";
+import { Navigate } from "react-router-dom"
 import { useDispatch } from "react-redux";
 import { setUser } from "./userSlice";
 import { loadBooks } from "../books/booksSlice"
@@ -28,8 +29,9 @@ function LoginForm() {
         r.json().then(err => setErrors(err.errors))
       }
     })
-    setUsername("")
-    setPassword("")
+    setUsername("");
+    setPassword("");
+    <Navigate replace to="/"/>
   }
 
 

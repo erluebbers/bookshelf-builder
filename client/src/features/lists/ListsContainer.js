@@ -13,7 +13,8 @@ function ListsContainer() {
   
   return (
     <div className='list-cont'>
-      <h2>My lists:</h2>
+      <h2>Booklists:</h2>
+      <p>Add any of these books to your own Books list by clicking on them</p>
       <div className='lists-holder'>
         {displayLists}
       </div>
