@@ -1,16 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 // Action Creators
-export const fetchUser = createAsyncThunk("users/fetchUser", () => {
-  return fetch ("/me")
-    .then(r => {
-      if (r.ok) {
-        r.json().then((user) => {
-          setUser(user)
-        });
-      }
-    })
-})
 
 
 // Reducers
@@ -26,15 +16,6 @@ const userSlice = createSlice({
     deleteUser(state) {
       state.selectedUser = {}
     }
-  },
-  extraReducers: {
-    [fetchUser.pending](state) {
-      state.status = "loading";
-    },
-    [fetchUser.fulfilled](state, action) {
-      state.selectedUser = action.payload
-      state.status = "idle"
-    },
   },
 });
 

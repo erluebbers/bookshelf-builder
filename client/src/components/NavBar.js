@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { deleteUser } from "../features/users/userSlice";
 
 
-function NavBar() {
+function NavBar( {setIsLoggedIn} ) {
   const dispatch = useDispatch()
 
   const handleLogoutClick = () => {
@@ -14,7 +14,7 @@ function NavBar() {
         dispatch(deleteUser());
       }
     });
-    <Navigate replace to="/login"/>
+    setIsLoggedIn(false)
   }
   
   
@@ -29,6 +29,7 @@ function NavBar() {
         <Link to="/">Home</Link>
         <Link to="/books">Books</Link>
         <Link to="/lists">Lists</Link>
+        <Link to="/myprofile">My Profile</Link>
       </nav>
       <button onClick={handleLogoutClick} className='logout-button'>Logout</button>
     </div>

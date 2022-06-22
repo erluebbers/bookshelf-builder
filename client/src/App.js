@@ -1,9 +1,10 @@
 import './App.css';
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import ManageBooks from "./components/ManageBooks";
 import ExploreLists from "./components/ExploreLists";
+import MyProfile from "./components/MyProfile";
 import { useDispatch, useSelector  } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import Login from "./features/users/Login";
@@ -12,9 +13,12 @@ import { loadBooks } from './features/books/booksSlice'
 import { loadLists } from './features/lists/listsSlice';
 
 function App() {
-  const user = useSelector(state => state.users.selectedUser)
-  // const lists = useSelector(state => state.lists.collections)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const dispatch = useDispatch()
+  // const lists = useSelector(state => state.lists.collections)
+  // const user = useSelector(state => state.users.selectedUser)
+
+
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -22,6 +26,7 @@ function App() {
         r.json().then((user) => {
           dispatch(setUser(user))
           dispatch(loadBooks(user.books))
+          setIsLoggedIn(true)
         });
       }
     });
@@ -34,15 +39,16 @@ function App() {
   }, [dispatch])
 
   
-  if (Object.keys(user).length === 0) return <Login />;
+  if (!isLoggedIn) return <Login setIsLoggedIn={setIsLoggedIn}/>;
 
   return (
     <div className='app'>
-      <NavBar />
+      <NavBar setIsLoggedIn={setIsLoggedIn}/>
       <Routes>
-        <Route exact path="/" element={<Home />}/> 
-        <Route exact path="/books" element={<ManageBooks />}/>
+        <Route exact path="/" element={<Home />} /> 
+        <Route exact path="/books" element={<ManageBooks />} />
         <Route exact path="/lists" element={<ExploreLists />} />
+        <Route exact path="/myprofile" element={<MyProfile />} />
       </Routes>
     </div>
   );

@@ -4,7 +4,7 @@ import LoginForm from "./LoginForm"
 import SignupForm from "./SignupForm"
 
 
-function Login() {
+function Login( {setIsLoggedIn} ) {
   const [existingUser, setExistingUser] = useState(true)
 
   const setUserValue = () => {
@@ -18,7 +18,7 @@ function Login() {
         <h1>Bookshelf Builder</h1>
       </div>
       <div className='login'>
-        {existingUser ? <LoginForm /> : <SignupForm />}
+        {existingUser ? <LoginForm setIsLoggedIn={setIsLoggedIn}/> : <SignupForm />}
       </div>
       <div className='footer'>
         <label htmlFor="signup"> {existingUser ? "Don't have an account? Sign up here:" : null} </label>

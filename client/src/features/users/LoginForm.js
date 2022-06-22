@@ -6,7 +6,7 @@ import { setUser } from "./userSlice";
 import { loadBooks } from "../books/booksSlice"
 
 
-function LoginForm() {
+function LoginForm( {setIsLoggedIn} ) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -24,6 +24,7 @@ function LoginForm() {
         r.json().then(user => {
           dispatch(setUser(user))
           dispatch(loadBooks(user.books))
+          setIsLoggedIn(true)
         })
       } else {
         r.json().then(err => setErrors(err.errors))
