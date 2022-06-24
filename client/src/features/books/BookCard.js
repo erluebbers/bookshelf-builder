@@ -18,8 +18,9 @@ function BookCard( {book} ) {
   })
 
   const handleAdd = () => {
-    if (targetList.books.find(title => title)) {
-      alert("This book is already on this list")
+    console.log(targetList.books)
+    if (targetList.books.find(book => book.title === title)) {
+      return alert("This book is already on this list")
     } else {
       fetch(`/booklists`, {
         method: 'POST',

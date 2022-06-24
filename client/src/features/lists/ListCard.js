@@ -12,9 +12,10 @@ function ListCard( { list } ) {
 
 
   const handleAddFromList = (event) => {
-    const selectedBook = books.find(book => book.title === event.target.text)
-    if (user.books.find((book) => book.title === selectedBook.title)) {
-      alert("This Book is already on your list!")
+    const selectedBook = books.find(book => book.title === event.target.id)
+    console.log("selected", selectedBook)
+    if (user.books.find(book => book.title === selectedBook.title)) {
+      return alert("This Book is already on your list!")
     } else {
       fetch(`/users/${user.id}/books`, {
         method: "POST",
@@ -47,7 +48,7 @@ function ListCard( { list } ) {
   }
 
   const titleList = books.map(book => {
-    return <li className='list-link' key={book.id}><button onClick={handleAddFromList}>{book.title}</button> by {book.author}</li>
+    return <li className='list-link' key={book.id}><button onClick={handleAddFromList} id={book.title}>{book.title}</button> by {book.author}</li>
   })
 
   return (
