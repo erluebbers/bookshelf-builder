@@ -1,6 +1,6 @@
 import '../App.css';
 import React from "react";
-import { Link, Navigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux";
 import { deleteUser } from "../features/users/userSlice";
 
@@ -29,7 +29,7 @@ function NavBar( {setIsLoggedIn} ) {
         <Link to="/">Home</Link>
         <Link to="/books">Books</Link>
         <Link to="/lists">Lists</Link>
-        <Link to="/myprofile">My Profile</Link>
+        <Link to="/user">My Profile</Link>
       </nav>
       <button onClick={handleLogoutClick} className='logout-button'>Logout</button>
     </div>

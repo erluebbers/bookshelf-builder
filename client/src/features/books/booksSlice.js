@@ -1,9 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Action Creators
-
-
-// Reducers
 const booksSlice = createSlice({
   name: "books",
   initialState: {

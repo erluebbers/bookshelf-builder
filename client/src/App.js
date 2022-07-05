@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import ManageBooks from "./components/ManageBooks";
 import ExploreLists from "./components/ExploreLists";
 import MyProfile from "./components/MyProfile";
-import { useDispatch, useSelector  } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import Login from "./features/users/Login";
 import { setUser } from './features/users/userSlice';
@@ -48,8 +48,8 @@ function App() {
         <Route exact path="/" element={<Home />} /> 
         <Route exact path="/books" element={<ManageBooks />} />
         <Route exact path="/lists" element={<ExploreLists />} />
-        <Route exact path="/myprofile" element={<MyProfile />} />
-      </Routes>
+        <Route exact path="/user" element={<MyProfile />} />
+      </Routes> 
     </div>
   );
 }

@@ -1,7 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
-// Action Creators
-
+import { createSlice } from "@reduxjs/toolkit";
 
 // Reducers
 const userSlice = createSlice({
