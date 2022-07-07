@@ -205,3 +205,14 @@
   font-size: medium;
   margin: none;
 }
+
+.demo-button {
+  background-color: deeppink;
+  color: white;
+  padding: 15px 15px;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+  font-family: inherit;
+  margin-right: 20px;
+}

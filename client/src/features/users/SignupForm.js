@@ -1,9 +1,7 @@
 import '../../App.css';
 import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
 
-
-function Signup() {
+function Signup( {setUserValue} ) {
 
   const initialFormState = {
     username: "",
@@ -45,7 +43,7 @@ function Signup() {
       }
     })
     setFormData(initialFormState);
-    <Navigate replace to="/login"/>
+    setUserValue()
   }
 
 
