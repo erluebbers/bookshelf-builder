@@ -26,10 +26,10 @@ function NavBar( {setIsLoggedIn} ) {
     </div>
     <div className='navbar'>
       <nav className='navigation'>
-        <Link to="/">Home</Link>
+        <Link to="/home">Home</Link>
         <Link to="/books">Books</Link>
         <Link to="/lists">Lists</Link>
-        <Link to="/user">My Profile</Link>
+        <Link to="/search">Search</Link>
       </nav>
       <button onClick={handleLogoutClick} className='logout-button'>Logout</button>
     </div>
