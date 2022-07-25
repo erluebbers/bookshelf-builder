@@ -3,7 +3,8 @@ import './Search.css';
 
 
 function SearchContainer() {
-  const [authorName, setAuthorName] = useState({})
+  const [authorName, setAuthorName] = useState("")
+  const [openLibraryData, setOpenLibraryData] = useState({})
 
   const handleSubmit = () => {
     console.log()

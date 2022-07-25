@@ -32,7 +32,7 @@ function LoginForm( {setIsLoggedIn} ) {
     })
     setUsername("");
     setPassword("");
-    <Navigate replace to="/"/>;
+    <Navigate replace to="/home"/>;
   }
 
 
