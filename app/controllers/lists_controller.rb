@@ -1,5 +1,4 @@
 class ListsController < ApplicationController
-  # before_action :authorize
 
   def index
     lists = List.all
@@ -31,10 +30,6 @@ class ListsController < ApplicationController
   end
 
   private
-
-  # def authorize
-  #   return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
-  # end
 
   def list_params
     params.permit(:title, :creator, :description, :genre)
