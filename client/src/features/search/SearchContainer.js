@@ -7,7 +7,9 @@ function SearchContainer() {
   const [openLibraryData, setOpenLibraryData] = useState({})
 
   const handleSubmit = () => {
-    console.log()
+    fetch(`https://openlibrary.org/search/authors.json?q=${authorName}`)
+      .then(r => r.json())
+      .then(data => setOpenLibraryData(data))
   }
   
   return (

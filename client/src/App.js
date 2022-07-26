@@ -4,13 +4,13 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import ManageBooks from "./components/ManageBooks";
 import ExploreLists from "./components/ExploreLists";
-import MyProfile from "./components/MyProfile";
 import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import Login from "./features/users/Login";
 import { setUser } from './features/users/userSlice';
 import { loadBooks } from './features/books/booksSlice'
 import { loadLists } from './features/lists/listsSlice';
+import SearchContainer from './features/search/SearchContainer';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -48,7 +48,7 @@ function App() {
         <Route exact path="/" element={<Home />} /> 
         <Route exact path="/books" element={<ManageBooks />} />
         <Route exact path="/lists" element={<ExploreLists />} />
-        <Route exact path="/user" element={<MyProfile />} />
+        <Route exact path="/search" element={<SearchContainer />} />
       </Routes> 
     </div>
   );
