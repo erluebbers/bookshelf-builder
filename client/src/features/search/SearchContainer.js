@@ -6,8 +6,10 @@ function SearchContainer() {
   const [authorName, setAuthorName] = useState("")
   const [openLibraryData, setOpenLibraryData] = useState({})
 
+  const authorSearchExp = openLibraryData.replace(/\s/g, '_')
+
   const handleSubmit = () => {
-    fetch(`https://openlibrary.org/search/authors.json?q=${authorName}`)
+    fetch(`https://openlibrary.org/search/authors.json?q=${authorSearchExp}`)
       .then(r => r.json())
       .then(data => setOpenLibraryData(data))
   }
