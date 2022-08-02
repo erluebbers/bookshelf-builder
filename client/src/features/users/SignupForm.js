@@ -37,7 +37,7 @@ function Signup( {setUserValue} ) {
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then(console.log((formData)));
+        r.json();
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
