@@ -1,0 +1,18 @@
+
+.form-container {
+  font-family: inherit;
+  margin: 5px;
+}
+
+.form-container input {
+  margin: 5px;
+  display: grid;
+  padding: 5px;
+  font-family: inherit;
+}
+
+.form-container label {
+  margin: 5px;
+  font-size: 14px;
+  font-family: inherit;
+}

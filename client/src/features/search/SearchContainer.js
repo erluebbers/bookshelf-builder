@@ -6,7 +6,9 @@ function SearchContainer() {
   const [authorName, setAuthorName] = useState("")
   const [openLibraryData, setOpenLibraryData] = useState({})
 
-  const authorSearchExp = openLibraryData.replace(/\s/g, '_')
+  const authorSearchExp = openLibraryData
+  
+  // openLibraryData.replace(/\s/g, '_')
 
   const handleSubmit = () => {
     fetch(`https://openlibrary.org/search/authors.json?q=${authorSearchExp}`)
@@ -16,7 +18,7 @@ function SearchContainer() {
   
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} class-name='form-container'>
         <label htmlFor='author'>Search by author name</label>
         <input
           type="text"
