@@ -10,10 +10,9 @@ function SearchContainer() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(authorSearchExp)
-    // fetch(`https://openlibrary.org/search/authors.json?q=${authorSearchExp}`)
-    //   .then(r => r.json())
-    //   .then(data => setOpenLibraryData(data))
+    fetch(`https://openlibrary.org/search/authors.json?q=${authorSearchExp}`)
+      .then(r => r.json())
+      .then(data => setOpenLibraryData(data))
   }
   
   return (
