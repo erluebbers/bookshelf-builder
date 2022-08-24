@@ -216,3 +216,9 @@
   font-family: inherit;
   margin-right: 20px;
 }
+
+/* Search component */
+
+.author-search {
+  color: red
+}

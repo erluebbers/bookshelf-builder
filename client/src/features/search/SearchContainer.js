@@ -1,19 +1,25 @@
 import { useState } from 'react';
-import './Search.css';
+import '../../App.css';
 
 
 function SearchContainer() {
   const [authorName, setAuthorName] = useState("")
   const [openLibraryData, setOpenLibraryData] = useState({})
 
-  const authorSearchExp = authorName.replace(/\s/g, '_')
+  // const authorSearchExp = authorName.replace(/\s/g, '_')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch(`https://openlibrary.org/search/authors.json?q=${authorSearchExp}`)
+    fetch(`https://openlibrary.org/search/authors.json?q=${authorName}`)
       .then(r => r.json())
-      .then(data => setOpenLibraryData(data))
+      .then(data => {
+        setOpenLibraryData(data)
+        console.log(data)
+        // console.log(authorSearchExp)
+      })
   }
+
+  console.log(openLibraryData)
   
   return (
     <div class-name='author-search'>
