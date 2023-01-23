@@ -15,7 +15,6 @@ function SearchContainer() {
       .then(data => {
         setOpenLibraryData(data)
         console.log(data)
-        // console.log(authorSearchExp)
       })
   }
 
