@@ -1,0 +1,80 @@
+.header {
+  text-align: center;
+  border: 5px solid lightyellow;
+  background-color: lightyellow;
+  font-family: inherit;
+}
+
+.login {
+  border: 2px solid moccasin;
+  background-color: moccasin;
+  text-align: left;
+  padding: 10px;
+  width: 50%;
+  margin: auto;
+}
+
+.footer {
+  margin: 25px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-family: inherit;
+}
+
+.form-container {
+  font-family: inherit;
+  margin: 5px;
+}
+
+.form-container input {
+  margin: 5px;
+  display: grid;
+  padding: 5px;
+  font-family: inherit;
+}
+
+.form-container label {
+  margin: 5px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.demo-button {
+  background-color: deeppink;
+  color: white;
+  padding: 15px 15px;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+  font-family: inherit;
+  margin-right: 20px;
+}
+
+.demo-button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  background-color: deeppink;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  padding: 25px 35px;
+  text-transform: uppercase;
+  display: inline-block;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.demo-button:hover {
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.2);
+  top: 1px;
+}
+
+.demo-button:active {
+  box-shadow: none;
+  top: 1px;
+}

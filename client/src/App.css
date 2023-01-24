@@ -3,7 +3,36 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.header {
+.button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  background-color: #087481;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px #297b92;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.button:hover {
+  box-shadow: 0 1px #297b92;
+  top: 1px;
+}
+
+.button:active {
+  box-shadow: none;
+  top: 1px;
+}
+
+/* App CSS */
+
+/* .header {
   text-align: center;
   border: 5px solid lightyellow;
   background-color: lightyellow;
@@ -54,7 +83,7 @@
   display: inline-block;
   font-size: 15px;
   font-family: inherit;
-}
+} */
 
 .navbar {
   background-color: darkseagreen;
@@ -206,16 +235,7 @@
   margin: none;
 }
 
-.demo-button {
-  background-color: deeppink;
-  color: white;
-  padding: 15px 15px;
-  text-align: center;
-  display: inline-block;
-  font-size: 15px;
-  font-family: inherit;
-  margin-right: 20px;
-}
+
 
 /* Search component */
 

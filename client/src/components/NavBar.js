@@ -31,7 +31,13 @@ function NavBar( {setIsLoggedIn} ) {
         <Link to="/lists">Lists</Link>
         <Link to="/search">Search</Link>
       </nav>
-      <button onClick={handleLogoutClick} className='logout-button'>Logout</button>
+      <button 
+        onClick={handleLogoutClick} 
+        className='button'
+        style={{"backgroundColor": "#E27D61", "box-shadow": "0 1px #BF5035"}}
+        >
+          Logout
+        </button>
     </div>
   </div>
   )
